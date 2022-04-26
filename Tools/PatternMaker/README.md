@@ -1,4 +1,4 @@
-![editor](sample.png "editor")
+![editor](PatternMaker.png "editor")
 
 ## 使い方
 photoshopのドキュメントが開いてる状態、  

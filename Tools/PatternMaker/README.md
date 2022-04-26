@@ -4,7 +4,7 @@
 photoshopのドキュメントが開いてる状態、  
 パターンにしたいレイヤーが選択された状態で  
 こちらのPatternMakerを実行  
-[DownLoad](PatternMaker.jsx) :point_left: **右クリックで別名で保存**
+[DownLoad](PatternMaker.jsx) :point_left: **名前を付けてリンク先を保存**
 
 ## 概要
 選択されたレイヤーの縦横の長い方の大きさを基準に正方形の別ドキュメントを作成、  

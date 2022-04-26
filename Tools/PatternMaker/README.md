@@ -1,3 +1,6 @@
+# PatternMaker
+指定のレイヤーをパターン化してくれるツール
+
 ![editor](PatternMaker.png "editor")
 
 ## 使い方

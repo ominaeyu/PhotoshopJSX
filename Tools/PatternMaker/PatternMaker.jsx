@@ -33,7 +33,7 @@ preferences.rulerUnits = Units.PIXELS;
             }
         }
    
-        win.cancelBtn = win.add("button", { width: 90, height: 20, x: 15, y: 120 }, "キャンセル");
+        win.cancelBtn = win.add("button", { width: 90, height: 20, x: 15, y: 120 }, "閉じる");
         win.okBtn = win.add("button", { width: 90, height: 20, x: 115, y: 120 }, "作成");
     
         //Button:Ok
@@ -134,4 +134,5 @@ preferences.rulerUnits = Units.PIXELS;
         newDocLayers[1].translate(squareSize / 2, squareSize / 2,);
         newDocLayers[2].translate(-squareSize / 2, squareSize / 2,);
         newDocLayers[3].translate(squareSize / 2, -squareSize / 2,);
+        win.close();
     }

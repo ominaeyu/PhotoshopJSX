@@ -1,7 +1,15 @@
 ## 使い方
-photoshopのドキュメントが開いてる状態、  
-パターンにしたいレイヤーが選択された状態で  
-こちらのPatternMakerを実行  
+PatternMakerを使ってるPhotoshopバージョンの  
+scriptフォルダーに格納  
+例)`C:\Program Files\Adobe\Adobe Photoshop 2021\Presets\Scripts`
+
+photoshopのドキュメントが開いてる状態&パターンにしたいレイヤーが選択された状態で  
+こちらのPatternMakerを実行する
+メニューは
+- 素材の背景状況：未対応  
+- レイヤースケール：パターン化した際の調整スケール  
+    最大100% 最小1%
+- キャンセル/実行ボタン
 
 ## 概要
 選択されたレイヤーの縦横の長い方の大きさを基準に正方形の別ドキュメントを作成、  

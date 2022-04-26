@@ -1,3 +1,5 @@
+![editor](sample.png "editor")
+
 ## 使い方
 photoshopのドキュメントが開いてる状態、  
 パターンにしたいレイヤーが選択された状態で  

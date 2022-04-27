@@ -19,16 +19,16 @@ function ShowWindow() {
     win.dialog.selectA.value = true;
     win.dialog.layerName = win.dialog.add("statictext", { width: 120, height: 20, x: 40, y: 18 }, activeDocument.activeLayer.name);
 
-    win.scale = win.add("statictext", { width: 120, height: 20, x: 25, y: 90 }, "レイヤースケール(1~100)");
-    win.inputText = win.add("edittext", { width: 30, height: 20, x: 150, y: 90 }, 50);
+    win.scale = win.add("statictext", { width: 120, height: 20, x: 25, y: 90 }, "レイヤースケール(1~200)");
+    win.inputText = win.add("edittext", { width: 30, height: 20, x: 150, y: 90 }, 100);
     win.scale.justify = "right";
     win.percent = win.add("statictext", { width: 50, height: 20, x: 185, y: 90 }, "%");
 
     win.inputText.onChange = function () {
         if (parseInt(win.inputText.text) < 1) {
             win.inputText.text = 1;
-        } else if (parseInt(win.inputText.text) > 100) {
-            win.inputText.text = 100;
+        } else if (parseInt(win.inputText.text) > 200) {
+            win.inputText.text = 200;
         }
     }
 
@@ -97,9 +97,9 @@ function CreatePattern(win) {
     var posY_u = H / 2;
     var posY_d = H - posY_u;
 
-
-    var squareSize = layerW;
-    if (layerH > layerW) squareSize = layerH;
+    //canvas scale 200%
+    var squareSize = layerW * 2;
+    if (layerH > layerW) squareSize = layerH * 2;
 
     var targetLayer = activeDoc.activeLayer;
     targetLayer.opacity = 100;
@@ -135,28 +135,29 @@ function CreatePattern(win) {
     var colorLayer = newDocLayer.bounds;
     var cax1 = parseInt(colorLayer[0], 10);
     var cay1 = parseInt(colorLayer[1], 10);
-    var patternBackgroundColor = GetPixcelInfo(cax1, cay1);
-
+    var patternBackgroundColor = null;
+    if (win.dialog.selectB.value) patternBackgroundColor = GetPixcelInfo(cax1, cay1);
+    var makeLayerCount = 4;
+    if (win.dialog.selectB.value) makeLayerCount = 5;
     //Duplicate pattern Image
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < makeLayerCount; i++) {
         var cloneLayer = newDocLayer.duplicate();
         cloneLayer.name = "index_" + i;
     }
-    
     newDocLayers[0].translate(-squareSize / 2, -squareSize / 2,);
     newDocLayers[1].translate(squareSize / 2, squareSize / 2,);
     newDocLayers[2].translate(-squareSize / 2, squareSize / 2,);
     newDocLayers[3].translate(squareSize / 2, -squareSize / 2,);
-    activeDocument.selection.selectAll();
     activeDocument.rasterizeAllLayers();
 
     if (win.dialog.selectB.value) {
+        activeDocument.selection.selectAll();
         RGBColor = new SolidColor();
         RGBColor.red = patternBackgroundColor[0];
         RGBColor.green = patternBackgroundColor[1];
         RGBColor.blue = patternBackgroundColor[2];
         activeDocument.selection.fill(RGBColor, ColorBlendMode.NORMAL, 100, false);
+        activeDocument.selection.deselect();
     }
-    activeDocument.selection.deselect();
     win.close();
 }
